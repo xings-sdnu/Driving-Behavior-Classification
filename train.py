@@ -7,19 +7,14 @@ from torch.utils.data import DataLoader, Dataset
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
-# from model import HybridCNNLSTMFFT
-from kalman_fft import kalman_FFT
-# from model_compare_WaveFFT import WaveFFT
-# from compare import Compare
-# from compare_wave import WaveConv
-# from model_TFCF import WaveFFT
+from model import HybridCNNLSTMFFT
 from data_loader import CustomDataset, create_inout_sequences, TimeSeriesDataset
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score, roc_curve, auc, roc_auc_score
 import warnings
 
 warnings.filterwarnings("ignore")
 
-model_name = "hcrl-dw-386-kalman_FFT"
+model_name = "model_uah_0"
 
 # Model parameters
 input_size = 53
@@ -32,21 +27,14 @@ output_size = 10  # 输出的类别数量
 batch_size = 96  # Change this value to your desired batch size
 # device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# model = WaveFFT(input_size, cnn_channels, output_size)
-# model = HybridCNNLSTMFFT(input_size, cnn_channels,lstm_hidden_size, lstm_num_layers, output_size)
-model = kalman_FFT(input_size, cnn_channels, output_size)
+model = HybridCNNLSTMFFT(input_size, cnn_channels,lstm_hidden_size, lstm_num_layers, output_size)
 model.to(device)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-4, amsgrad=True, weight_decay=1e-4)
 
 # Paths to training and testing data
-# train_csv_path = "data/HCILAB_normal.csv"
-train_csv_path = "data/HCRL.csv"
-# train_csv_path = "data/merged_data_random.csv"
-# train_csv_path = "data/UAH_driveser_0.csv"
-# train_csv_path = "data/fordTrain.csv"
-# train_csv_path = "data/UAH_driveser_merged_0.csv"
+train_csv_path = "data/UAH_driveser_merged_0.csv"
 ext = train_csv_path
 Dataset = CustomDataset(train_csv_path)
 
