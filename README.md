@@ -24,5 +24,5 @@ Please cite our paper if you find the work useful:<br>
         no = {},
         pages = {},
         year = {},
-        doi = {https://doi.org/10.1109/TITS.2024.3492383}
+        doi = {https://doi.org/10.1109/TITS.2025.3579142}
         }
