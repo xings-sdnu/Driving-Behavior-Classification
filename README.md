@@ -20,9 +20,9 @@ Please cite our paper if you find the work useful:<br>
         author = {Xing Sheng, Jianrong Cao, Junzhe Zhang, Zhen Wang, Zongtao Duan},
         title = {Driving Behavior Classification Method Based on Fourier Transform Multimodal Fusion},
         journal = {IEEE Transcations on Intelligent Transportation Systems},
-        volume = {},
-        no = {},
-        pages = {1-13},
+        volume = {26},
+        no = {10},
+        pages = {15000-15012},
         year = {2025},
         doi = {https://doi.org/10.1109/TITS.2025.3579142}
         }
